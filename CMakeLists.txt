@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project(ocean)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
-    set(CMAKE_C_COMPILER "emcc")
+    set(CMAKE_C_COMPILER "em++")
 endif ()
 
 include_directories(include)
@@ -20,6 +20,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_BUILD_TYPE Release)
 
+find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(GLM REQUIRED)
+find_package(GLFW3 REQUIRED)
+
+set(LIBS glfw3 gdi32 opengl32 glew32)
 
 include_directories(
 	"${CMAKE_SOURCE_DIR}/src"
