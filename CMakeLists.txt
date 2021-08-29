@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project(ocean)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
-    set(CMAKE_C_COMPILER "em++")
+    set(CMAKE_C_COMPILER "emcc")
 endif ()
 
 include_directories(include)
@@ -20,12 +20,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_BUILD_TYPE Release)
 
-find_package(GLM REQUIRED)
 
 include_directories(
 	"${CMAKE_SOURCE_DIR}/src"
 	"${CMAKE_SOURCE_DIR}/include"
-	"${CMAKE_SOURCE_DIR}/glm"
 )
 
 file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
