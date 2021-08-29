@@ -20,6 +20,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_BUILD_TYPE Release)
 
+find_package(GLM REQUIRED)
 
 include_directories(
 	"${CMAKE_SOURCE_DIR}/src"
